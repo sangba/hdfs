@@ -131,7 +131,7 @@ func (br *BlockReader) Skip(off int64) error {
 		return errors.New("unable to skip")
 	}
 
-	_, err := io.CopyN(io.Discard, br.stream, amountToSkip)
+	_, err := io.CopyN(ioutil.Discard, br.stream, amountToSkip)
 	if err != nil {
 		if err == io.EOF {
 			err = io.ErrUnexpectedEOF
